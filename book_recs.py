@@ -1,5 +1,4 @@
 import streamlit as st
-import pandas as pd
 import requests
 
 books = {
@@ -31,7 +30,7 @@ if genre != "":
         st.write(f"<u><b>{title} by {author}</b></u>", unsafe_allow_html=True)
         description, pageCount, thumbnail = get_book_data(title, author)
         st.image(thumbnail)
-        st.write(f"{description[:500]}...")
+        st.write(f"{description[:1000]}...")
         st.write(f"Page Count: {pageCount}")
         amazon_link = f"https://www.amazon.in/s?k={title.replace(' ', '+')}+by+{author.replace(' ', '+')}"
         st.markdown(f"[Buy on Amazon.in]({amazon_link})")
